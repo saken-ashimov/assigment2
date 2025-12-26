@@ -1,4 +1,4 @@
-public abstract class Vehicle {
+public abstract class Vehicle implements Servicable {
     private final int id;
     private static int idGen = 1;
     private String model;
@@ -11,7 +11,7 @@ public abstract class Vehicle {
         setYear(year);
         setBasePrice(basePrice);
         setModel(model);
-        this.id = idGen++;
+        this.id  = idGen++;
     }
 
     // Setters
