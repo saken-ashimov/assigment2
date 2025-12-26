@@ -5,6 +5,7 @@ public abstract class Vehicle {
     private int year;
     private double basePrice;
 
+    protected static final int CURRENT_YEAR = 2025;
     // Constructors
     public Vehicle(String model, int year, double basePrice){
         setYear(year);
@@ -39,17 +40,16 @@ public abstract class Vehicle {
     public String getModel() { return model; }
     public int getId() { return  id; }
 
-
+    public int getAge() {
+        return (CURRENT_YEAR - this.year);
+    }
     // Methods
 
-    public int getAge(int currentYear) {
-        if (currentYear < year) {
-            throw new IllegalArgumentException("currentYear can't be less than vehicle year");
-        }
-        return (currentYear - this.year);
-    }
 
     public abstract double calculateInsuranceFee();
 
-
+    @Override
+    public String toString() {
+        return "id=" + id + ", model= " + model + ", year=" + year + ", basePrice=" + basePrice;
+    }
 }
